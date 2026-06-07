@@ -14,6 +14,7 @@ btnTipo.addEventListener("click", function() {
     
     tipografias.push("Tipografía " + nuevoNumero);
     console.log("Eje X actualizado:", tipografias);
+    UpdateGrid()
 });
 
 btnVar.addEventListener("click", function() {
@@ -21,6 +22,7 @@ btnVar.addEventListener("click", function() {
     
     variables.push("Variable " + nuevoNumero);
     console.log("Eje Y actualizado:", variables);
+    UpdateGrid()
 });
 
 function UpdateGrid(){
