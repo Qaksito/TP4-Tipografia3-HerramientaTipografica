@@ -24,20 +24,24 @@ btnVar.addEventListener("click", function() {
 });
 
 function UpdateGrid(){
-    for (let i = 0 ; i < (tipografias.length * variables.length) ; i++){
+    contenedor.innerHTML = "";
+    for (let i = 0 ; i < ((tipografias.length + 1) * (variables.length + 1)) ; i++){
         let newBox = document.createElement("div");
         if (i < tipografias.length){
-            newBox.className = "box-tipo"
-            newbox.textContent = "C-T"
+            newBox.className = "box-tipo";
+            newBox.textContent = "C-T";
         }
         else if(i % (tipografias.length + 1) === 0){
-            newBox.className = "box-var"
-            newbox.textContent = "C-V"
+            newBox.className = "box-var";
+            newBox.textContent = "C-V";
         }
         else{
-            newBox.className = "box-dato"
-            newbox.textContent = "C-D"
+            newBox.className = "box-dato";
+            newBox.textContent = "C-D";
         }
         contenedor.appendChild(newBox)
     }
+
+    contenedor.style.display = "grid";
+    contenedor.style.gridTemplateColumns = `repeat(${tipografias.length + 1}, 1fr)`;
 }
