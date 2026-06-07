@@ -29,7 +29,11 @@ function UpdateGrid(){
     contenedor.innerHTML = "";
     for (let i = 0 ; i < ((tipografias.length + 1) * (variables.length + 1)) ; i++){
         let newBox = document.createElement("div");
-        if (i < tipografias.length){
+        if (i = 0){
+            newBox.className = "box-void";
+            newBox.textContent = "";
+        }
+        else if (i < tipografias.length + 1){
             newBox.className = "box-tipo";
             newBox.textContent = "C-T";
         }
