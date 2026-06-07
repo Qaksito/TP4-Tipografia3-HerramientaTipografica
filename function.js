@@ -1,6 +1,6 @@
 // 1. LOS EJES
-let tipografias = ["T1"];
-let variables = ["V1"];
+let tipografias = [];
+let variables = [];
 
 // 2. EL CENTRO (La matriz de intersecciones)
 let datos = [];
