@@ -43,5 +43,5 @@ function UpdateGrid(){
     }
 
     contenedor.style.display = "grid";
-    contenedor.style.gridTemplateColumns = `repeat(${tipografias.length + 1}, 1fr)`;
+    contenedor.style.gridTemplateColumns = `repeat(${(tipografias.length + 1)}, 1fr)`;
 }
