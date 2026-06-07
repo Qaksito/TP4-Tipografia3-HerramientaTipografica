@@ -4,53 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herramienta</title>
-    <style>
-        /* Estética funcional y cruda */
-        body { font-family: monospace; background: #e0e0e0; padding: 20px; }
-        .botonera { margin-bottom: 20px; display: flex; gap: 10px; }
-        
-        button { 
-            background: #000; color: #fff; border: none; 
-            padding: 10px 20px; cursor: pointer; font-weight: bold; 
-        }
-        button:hover { background: #ffcc00; color: #000; }
-        
-        /* La magia del CSS Grid */
-        #grilla {
-            display: grid;
-            gap: 1px; /* Líneas separadoras de 1px */
-            background: #000; /* El fondo negro se cuela por el gap, haciendo de borde */
-            width: fit-content;
-        }
-        
-        .celda {
-            background: #fff;
-            padding: 15px;
-            text-align: center;
-            min-width: 80px;
-        }
-        
-        .celda-header { background: #ccc; font-weight: bold; }
-    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    //------------------------------------------ Titulo ------------------------------------------
+    <h1>Comparador tipográfico para maridage</h1>
 
-    <header class="panel-superior">
-        <div>
-            <h1>Comparador tipográfico para maridage</h1>
-        </div>
-        <nav class="controles-matriz">
-            <button id="btn-add-tipo" class="btn-tactico">AGREGAR TIPOGRAFÍA</button>
-            <button id="btn-add-var" class="btn-tactico">AGREGAR VARIABLE</button>
-        </nav>
-    </header>
-
-    <main>
-        <div id="grilla-matriz" class="grilla-contenedor">
-            
-            </div>
-    </main>
+    //------------------------------------------ Botonera ------------------------------------------
+    <nav class="botonera">
+        <button id="btn-add-tipo" class="btn-tactico">AGREGAR TIPOGRAFÍA</button>
+        <button id="btn-add-var" class="btn-tactico">AGREGAR VARIABLE</button>
+    </nav>
+//------------------------------------------ Grilla ------------------------------------------
+    <div id="grilla"></div>
 
     <script src="function.js"></script>
 </body>
