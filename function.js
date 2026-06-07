@@ -38,5 +38,6 @@ function UpdateGrid(){
             newBox.className = "box-dato"
             newbox.textContent = "C-D"
         }
+        contenedor.appendChild(newBox)
     }
 }
