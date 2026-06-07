@@ -2,7 +2,7 @@
 let tipografias = [];
 let variables = [];
 
-// 2. EL CENTRO (La matriz de intersecciones)
+// 2. EL CENTRO (La matriz de intersecciones
 let datos = [];
 
 const btnTipo = document.getElementById("btn-tipo");
