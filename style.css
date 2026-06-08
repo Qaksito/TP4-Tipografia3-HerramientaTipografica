@@ -1,4 +1,3 @@
-/* --- 1. RESETEO Y VARIABLES --- */
 :root {
     --bg-color: #cfffd3;
     --black: #1a1a1a;
@@ -11,11 +10,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* Aplicamos Russo One a toda la aplicación */
     font-family: "Russo One";
 }
 
-/* --- LA BANDA SUPERIOR --- */
 header.banda-superior {
     background-color: var(--black);
     color: var(--bg-color);
@@ -23,7 +20,7 @@ header.banda-superior {
     padding: 20px 20px;
     margin-bottom: 30px; 
     display: flex;
-    justify-content: space-between; /* LA CLAVE: Título a la izquierda, botones a la derecha */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -34,40 +31,34 @@ header.banda-superior h1 {
     text-transform: uppercase;
 }
 
-/* --- CONTENEDOR DE BOTONES EN EL HEADER --- */
 .botones-sistema-header {
     display: flex;
     gap: 15px;
 }
 
-/* --- ESTILO BRUTALISTA PARA LOS BOTONES DEL HEADER --- */
-/* Como el fondo es negro, hacemos que los botones sean de borde "lima" con texto "lima" */
 header.banda-superior .btn-system {
-    background-color: transparent; /* Fondo transparente para que se vea el negro del header */
+    background-color: transparent;
     color: var(--bg-color);
     border: 2px solid var(--bg-color);
 }
 
-/* Al pasar el mouse, se invierten: fondo "lima", texto negro */
 header.banda-superior .btn-system:hover {
     background-color: var(--bg-color);
     color: var(--black);
 }
 
-/* --- CONTENEDOR PRINCIPAL (Para todo lo que no es el header) --- */
 .contenido-principal {
-    padding: 0px 20px; /* El padding lateral original de body, ahora en main */
+    padding: 0px 20px;
 }
 
 body {
     body {
         background-color: var(--bg-color);
-        padding: 0; /* Reset total para el header full-width */
+        padding: 0;
         color: var(--black);
     }
 }
 
-/* --- 2. LA BOTONERA (Controles del sistema) --- */
 .botonera {
     display: flex;
     gap: 12px;
@@ -86,7 +77,6 @@ button {
     transition: all 0.1s ease;
 }
 
-/* Los botones de sistema (descargar/cargar) los podemos invertir para separarlos visualmente */
 .btn-system {
     background-color: var(--black);
     color: var(--white);
@@ -102,15 +92,13 @@ button:hover {
     color: var(--black);
 }
 
-/* --- 3. LA GRILLA MAESTRA --- */
 #grilla {
     border: 2px solid var(--black);
-    background-color: var(--black); /* El fondo negro forma las líneas del grid */
-    gap: 2px; /* Grosor de las líneas divisorias */
+    background-color: var(--black);
+    gap: 2px;
     width: fit-content;
 }
 
-/* --- 4. LAS CELDAS --- */
 .box-tipo, .box-var, .box-dato, .box-void {
     background-color: var(--white);
     min-width: 150px;
@@ -119,10 +107,9 @@ button:hover {
     justify-content: center;
     align-items: center;
     font-size: 16px;
-    border: none; /* El borde lo da el gap de la grilla */
+    border: none;
 }
 
-/* Cabeceras (Tipografías y Variables) */
 .box-tipo, .box-var {
     font-weight: 600;
     background-color: #cfffd3;
@@ -132,32 +119,29 @@ button:hover {
     background-color: var(--gray-hover);
 }
 
-/* --- 5. LOS INPUTS INTERACTIVOS DE LA MATRIZ --- */
 .input-celda {
     width: 100%;
     height: 100%;
     border: none;
     background: transparent;
     text-align: center;
-    font-family: monospace; /* Fuente técnica para los datos */
+    font-family: monospace;
     font-size: 16px;
     cursor: text;
     outline: none;
 }
 
-/* Desplegables en la matriz */
 select.input-celda {
     cursor: pointer;
-    appearance: none; /* Saca la flechita por defecto de Windows/Mac */
+    appearance: none;
     text-align-last: center;
 }
 
-/* Checkboxes (Verdadero/Falso) */
 input[type="checkbox"].input-celda {
     cursor: pointer;
     width: 20px;
     height: 20px;
-    accent-color: var(--black); /* Tilde negro en navegadores modernos */
+    accent-color: var(--black);
 }
 
 .input-celda:focus {
@@ -170,13 +154,11 @@ input[type="checkbox"].input-celda {
     cursor: not-allowed;
 }
 
-/* --- 6. EL MENÚ EMERGENTE (Estilo Ventana de Sistema) --- */
 #menu {
-    margin: auto; /* Esto lo centra nativamente */
+    margin: auto;
     padding: 30px;
     border: 2px solid var(--black);
     background-color: var(--white);
-    /* Una sombra dura bien brutalista */
     box-shadow: 10px 10px 0px var(--black); 
     width: 400px;
     max-width: 90vw;
@@ -187,7 +169,6 @@ input[type="checkbox"].input-celda {
     backdrop-filter: blur(2px);
 }
 
-/* Elementos del menú */
 #menu div {
     margin-bottom: 20px;
     display: flex;
@@ -207,7 +188,6 @@ input[type="checkbox"].input-celda {
     background-color: var(--focus-yellow);
 }
 
-/* El grupo del candado (para que el texto y el checkbox queden en la misma línea) */
 #group-lock label {
     display: flex;
     flex-direction: row;
@@ -222,17 +202,14 @@ input[type="checkbox"].input-celda {
     justify-content: flex-end;
 }
 
-/* --- LA CELDA DE LA ESQUINA --- */
 .box-void {
     background-color: var(--white);
-    position: relative; /* Clave para que los textos no se escapen */
+    position: relative;
     min-width: 150px;
     min-height: 80px; 
     border: none;
     overflow: hidden;
-    display: block; /* Matamos el flex acá para usar absolute */
-
-    /* La diagonal \ perfecta (usando to bottom left) */
+    display: block;
     background-image: linear-gradient(
         to bottom left,
         transparent calc(50% - 1px),
@@ -242,7 +219,6 @@ input[type="checkbox"].input-celda {
     );
 }
 
-/* Base de los textos */
 .label-corner {
     position: absolute;
     font-size: 11px;
@@ -252,13 +228,11 @@ input[type="checkbox"].input-celda {
     padding: 6px;
 }
 
-/* Posición Bottom-Left (Abajo Izquierda) */
 .corner-bl {
     bottom: 0;
     left: 0;
 }
 
-/* Posición Top-Right (Arriba Derecha) */
 .corner-tr {
     top: 0;
     right: 0;
