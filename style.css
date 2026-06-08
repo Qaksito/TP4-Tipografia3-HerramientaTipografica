@@ -1,1 +1,265 @@
+/* --- 1. RESETEO Y VARIABLES --- */
+:root {
+    --bg-color: #cfffd3;
+    --black: #1a1a1a;
+    --white: #cfffd3;
+    --gray-hover: #1a1a1a;
+    --focus-yellow: #cfffd3;
+}
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Aplicamos Russo One a toda la aplicación */
+    font-family: "Russo One";
+}
+
+/* --- LA BANDA SUPERIOR --- */
+header.banda-superior {
+    background-color: var(--black);
+    color: var(--bg-color);
+    width: 100%;
+    padding: 20px 20px;
+    margin-bottom: 30px; 
+    display: flex;
+    justify-content: space-between; /* LA CLAVE: Título a la izquierda, botones a la derecha */
+    align-items: center;
+}
+
+header.banda-superior h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* --- CONTENEDOR DE BOTONES EN EL HEADER --- */
+.botones-sistema-header {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- ESTILO BRUTALISTA PARA LOS BOTONES DEL HEADER --- */
+/* Como el fondo es negro, hacemos que los botones sean de borde "lima" con texto "lima" */
+header.banda-superior .btn-system {
+    background-color: transparent; /* Fondo transparente para que se vea el negro del header */
+    color: var(--bg-color);
+    border: 2px solid var(--bg-color);
+}
+
+/* Al pasar el mouse, se invierten: fondo "lima", texto negro */
+header.banda-superior .btn-system:hover {
+    background-color: var(--bg-color);
+    color: var(--black);
+}
+
+/* --- CONTENEDOR PRINCIPAL (Para todo lo que no es el header) --- */
+.contenido-principal {
+    padding: 0px 20px; /* El padding lateral original de body, ahora en main */
+}
+
+body {
+    body {
+        background-color: var(--bg-color);
+        padding: 0; /* Reset total para el header full-width */
+        color: var(--black);
+    }
+}
+
+/* --- 2. LA BOTONERA (Controles del sistema) --- */
+.botonera {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+button {
+    background-color: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+/* Los botones de sistema (descargar/cargar) los podemos invertir para separarlos visualmente */
+.btn-system {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+button:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.btn-system:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* --- 3. LA GRILLA MAESTRA --- */
+#grilla {
+    border: 2px solid var(--black);
+    background-color: var(--black); /* El fondo negro forma las líneas del grid */
+    gap: 2px; /* Grosor de las líneas divisorias */
+    width: fit-content;
+}
+
+/* --- 4. LAS CELDAS --- */
+.box-tipo, .box-var, .box-dato, .box-void {
+    background-color: var(--white);
+    min-width: 150px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border: none; /* El borde lo da el gap de la grilla */
+}
+
+/* Cabeceras (Tipografías y Variables) */
+.box-tipo, .box-var {
+    font-weight: 600;
+    background-color: #cfffd3;
+}
+
+.box-tipo:hover, .box-var:hover {
+    background-color: var(--gray-hover);
+}
+
+/* --- 5. LOS INPUTS INTERACTIVOS DE LA MATRIZ --- */
+.input-celda {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-family: monospace; /* Fuente técnica para los datos */
+    font-size: 16px;
+    cursor: text;
+    outline: none;
+}
+
+/* Desplegables en la matriz */
+select.input-celda {
+    cursor: pointer;
+    appearance: none; /* Saca la flechita por defecto de Windows/Mac */
+    text-align-last: center;
+}
+
+/* Checkboxes (Verdadero/Falso) */
+input[type="checkbox"].input-celda {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--black); /* Tilde negro en navegadores modernos */
+}
+
+.input-celda:focus {
+    background-color: var(--focus-yellow);
+}
+
+.input-celda:disabled {
+    background-color: #cfffd3;
+    color: #cfffd3;
+    cursor: not-allowed;
+}
+
+/* --- 6. EL MENÚ EMERGENTE (Estilo Ventana de Sistema) --- */
+#menu {
+    margin: auto; /* Esto lo centra nativamente */
+    padding: 30px;
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    /* Una sombra dura bien brutalista */
+    box-shadow: 10px 10px 0px var(--black); 
+    width: 400px;
+    max-width: 90vw;
+}
+
+#menu::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+/* Elementos del menú */
+#menu div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: normal;
+}
+
+#menu input[type="text"], #menu select {
+    padding: 10px;
+    border: 2px solid var(--black);
+    font-size: 16px;
+    outline: none;
+}
+
+#menu input[type="text"]:focus, #menu select:focus {
+    background-color: var(--focus-yellow);
+}
+
+/* El grupo del candado (para que el texto y el checkbox queden en la misma línea) */
+#group-lock label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+#menu .botonera {
+    margin-bottom: 0;
+    margin-top: 30px;
+    justify-content: flex-end;
+}
+
+/* --- LA CELDA DE LA ESQUINA --- */
+.box-void {
+    background-color: var(--white);
+    position: relative; /* Clave para que los textos no se escapen */
+    min-width: 150px;
+    min-height: 80px; 
+    border: none;
+    overflow: hidden;
+    display: block; /* Matamos el flex acá para usar absolute */
+
+    /* La diagonal \ perfecta (usando to bottom left) */
+    background-image: linear-gradient(
+        to bottom left,
+        transparent calc(50% - 1px),
+        var(--black) calc(50% - 1px),
+        var(--black) calc(50% + 1px),
+        transparent calc(50% + 1px)
+    );
+}
+
+/* Base de los textos */
+.label-corner {
+    position: absolute;
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--black);
+    padding: 6px;
+}
+
+/* Posición Bottom-Left (Abajo Izquierda) */
+.corner-bl {
+    bottom: 0;
+    left: 0;
+}
+
+/* Posición Top-Right (Arriba Derecha) */
+.corner-tr {
+    top: 0;
+    right: 0;
+}

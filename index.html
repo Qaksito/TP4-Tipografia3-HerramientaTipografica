@@ -4,52 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herramienta</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Comparador tipográfico para maridage</h1>
+    <header class="banda-superior">
+        <h1>Comparador tipográfico</h1>
 
-    <nav class="botonera">
-        <button id="btn-tipo" class="btn-add">AGREGAR TIPOGRAFÍA</button>
-        <button id="btn-var" class="btn-add">AGREGAR VARIABLE</button>
-        <button id="btn-guardar-archivo" class="btn-system">DESCARGAR PROYECTO</button>
-        <button id="btn-cargar-archivo" class="btn-system">CARGAR PROYECTO</button>
-        <input type="file" id="input-file" accept=".txt" style="display: none;">
-    </nav>
-    <div id="grilla"></div>
-    <dialog id="menu">
-        <h3>Configuración:</h3>
-        
-        <div>
-            <label>Nombre:</label>
-            <input type="text" id="input-nombre" value="Aspecto a comparar">
+        <div class="flotante-derecha">
+            <button id="btn-guardar-archivo" class="btn-system">DESCARGAR PROYECTO</button>
+            <button id="btn-cargar-archivo" class="btn-system">CARGAR PROYECTO</button>
+            <input type="file" id="input-file" accept=".txt" style="display: none;">
         </div>
         
-        <br>
+    </header>
+    <main class="contenido-principal">
+        <nav class="botonera">
+            <button id="btn-tipo" class="btn-add">AGREGAR TIPOGRAFÍA</button>
+            <button id="btn-var" class="btn-add">AGREGAR VARIABLE</button>
+        </nav>
 
-        <div id="data-type">
-            <label>Tipo de dato:</label>
-            <select id="select-dato-type">
-                <option value="texto">Texto</option>
-                <option value="numero">Número</option>
-                <option value="amb">Altura</option>
-                <option value="vf">Verdadero / Falso</option>
-                
-            </select>
-        </div>
-        <div id="group-lock">
-            <label>
-                Bloquear edición: <input type="checkbox" id="input-lock">
-            </label>
-        </div>
+        <div id="grilla"></div>
+
         
-        <br>
 
-        <div>
-            <button id="btn-guardar-var">Guardar</button>
-        </div>
-    </dialog>
+        <dialog id="menu">
+            <h3>Configuración:</h3>
+            
+            <div>
+                <label>Nombre:</label>
+                <input type="text" id="input-nombre" value="Aspecto a comparar">
+            </div>
+            
+            <br>
 
-    <script src="function.js"></script>
+            <div id="data-type">
+                <label>Tipo de dato:</label>
+                <select id="select-dato-type">
+                    <option value="texto">Texto</option>
+                    <option value="numero">Número</option>
+                    <option value="amb">Altura</option>
+                    <option value="vf">Verdadero / Falso</option>
+                    
+                </select>
+            </div>
+            <div id="group-lock">
+                <label>
+                    Bloquear edición: <input type="checkbox" id="input-lock">
+                </label>
+            </div>
+            
+            <br>
+
+            <div>
+                <button id="btn-guardar-var">Guardar</button>
+            </div>
+        </dialog>
+
+        <script src="function.js"></script>
+    </main>
 </body>
 </html>

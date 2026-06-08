@@ -167,7 +167,19 @@ function UpdateGrid() {
         if (i === 0) {
             newBox = document.createElement("div");
             newBox.className = "box-void";
-            newBox.textContent = "";
+
+            // Eje Y (Variables) -> Va abajo a la izquierda
+            let labelY = document.createElement("span");
+            labelY.textContent = "Características";
+            labelY.className = "label-corner corner-bl"; 
+
+            // Eje X (Tipografías) -> Va arriba a la derecha
+            let labelX = document.createElement("span");
+            labelX.textContent = "Tipografías";
+            labelX.className = "label-corner corner-tr"; 
+
+            newBox.appendChild(labelY);
+            newBox.appendChild(labelX);
         }
         else {
             if (i < anchoTotal) {
